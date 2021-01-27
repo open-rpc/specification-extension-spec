@@ -8,3 +8,5 @@
 - **Prototype New OpenRPC changes** - new additions to the OpenRPC specification can be created and prototyped as a Specification Extension and have working tooling before being merged into the OpenRPC specification.
 
 You can view the JSON-RPC meta-schema here: [./meta-schema.json](./meta-schema.json).
+
+**NOTE**: Tooling support is still WIP for Specification Extensions.
