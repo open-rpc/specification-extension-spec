@@ -1,5 +1,7 @@
 # OpenRPC Specification Extension
 
+[Specification Extensions](https://spec.open-rpc.org/#specification-extensions) allows extensions to the OpenRPC Schema and is always prefixed by `"x-"`. The extensions may or may not be supported by the available tooling, but those may be extended as well to add requested support (if tools are internal or open-sourced).
+
 ### Goals
 
 - **Define an extension in JSON** - Human and machine readable.
