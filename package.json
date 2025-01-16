@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "OpenRPC Specification Extension Schema",
   "type": "module",
+  "private": false,
   "main": "./dist/cjs/src/index.cjs",
   "module": "./dist/mjs/src/index.mjs",
   "types": "./dist/mjs/src/index.d.mts",
