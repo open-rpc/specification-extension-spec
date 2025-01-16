@@ -11,4 +11,19 @@
 
 You can view the JSON-Schema meta-schema here: [./meta-schema.json](./meta-schema.json).
 
+### Installation
+
+```sh
+bash
+npm install @open-rpc/specification-extension-spec
+```
+
+### Usage
+
+This package contains the OpenRPC Specification Extension JSON Schema and example extensions. It can be imported using CommonJS or ESM:
+
+```ts
+import { metaSchema, examples } from "@open-rpc/specification-extension-spec";
+```
+
 **NOTE**: Tooling support is still WIP for Specification Extensions.
