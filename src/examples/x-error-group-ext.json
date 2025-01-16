@@ -2,7 +2,7 @@
   "openrpcExtension": "0.0.0-development",
   "name": "x-error-group",
   "version": "0.0.1",
-  "description": "Describe an error group for OpenRPC methods",
+  "description": "Describe error groups for OpenRPC methods",
   "summary": "OpenRPC Error Groups",
   "externalDocumentation": {
     "description": "github",
