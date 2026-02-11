@@ -1,0 +1,110 @@
+{
+  "openrpc": "1.3.2",
+  "info": {
+    "title": "Wallet Service",
+    "version": "1.0.0",
+    "description": "Example OpenRPC document using the x-transport, x-notification, and x-error-group specification extensions."
+  },
+  "servers": [
+    {
+      "name": "Wallet API (HTTP)",
+      "url": "https://wallet.example.com/rpc",
+      "x-transport": {
+        "name": "HTTPTransport",
+        "options": {
+          "headers": {
+            "Authorization": "Bearer <token>",
+            "Content-Type": "application/json"
+          },
+          "credentials": "include"
+        }
+      }
+    },
+    {
+      "name": "Wallet API (Popup)",
+      "url": "https://wallet.example.com/popup",
+      "x-transport": {
+        "name": "PostMessageWindow",
+        "options": {
+          "top": 120,
+          "left": 200,
+          "height": 600,
+          "width": 480
+        }
+      }
+    }
+  ],
+  "methods": [
+    {
+      "name": "eth_sendRawTransaction",
+      "summary": "Broadcast a signed transaction",
+      "params": [
+        {
+          "name": "signedTransaction",
+          "schema": {
+            "type": "string",
+            "description": "0x-prefixed RLP encoded signed transaction"
+          },
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "transactionHash",
+        "schema": {
+          "type": "string",
+          "description": "0x-prefixed transaction hash"
+        }
+      },
+      "x-notification": false,
+      "x-error-group": [
+        [
+          {
+            "code": "-32000",
+            "message": "Invalid transaction",
+            "data": {
+              "category": "validation"
+            }
+          },
+          {
+            "code": "-32003",
+            "message": "Transaction rejected",
+            "data": {
+              "category": "authorization"
+            }
+          }
+        ],
+        [
+          {
+            "code": "-32603",
+            "message": "Internal error"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "wallet_subscriptionUpdate",
+      "summary": "Server pushes updates to clients",
+      "description": "This method is a notification and does not require a response.",
+      "params": [
+        {
+          "name": "update",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "subscriptionId": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object"
+              }
+            },
+            "required": ["subscriptionId", "payload"]
+          },
+          "required": true
+        }
+      ],
+      "x-notification": true,
+      "x-error-group": []
+    }
+  ]
+}
