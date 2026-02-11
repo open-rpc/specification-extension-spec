@@ -27,3 +27,8 @@ import { metaSchema, examples } from "@open-rpc/specification-extension-spec";
 ```
 
 **NOTE**: Tooling support is still WIP for Specification Extensions.
+
+### Example OpenRPC document
+
+An example OpenRPC document that uses all bundled specification extensions is available at [./src/examples/example-openrpc-with-spec-extensions.json](./src/examples/example-openrpc-with-spec-extensions.json).
+
